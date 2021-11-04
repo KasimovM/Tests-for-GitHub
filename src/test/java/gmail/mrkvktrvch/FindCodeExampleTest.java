@@ -18,9 +18,10 @@ public class FindCodeExampleTest {
         open("https://github.com/selenide/selenide");
         $("#wiki-tab").click();
         $("#wiki-pages-box").$(withText("more pages")).click();
-        $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
-        $(byText("SoftAssertions")).click();
-        $$("ol").first().shouldHave(text("JUnit5 extension - com.codeborne.selenide.junit5.SoftAssertsExtension"));
+        $("#wiki-pages-box").shouldHave(text("SoftAssertions")).$(byText("SoftAssertions"))
+                .click();
+        $("ol").shouldHave(text("JUnit5 extension - com.codeborne.selenide.junit5." +
+                "SoftAssertsExtension"));
 
     }
 
